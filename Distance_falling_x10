@@ -1,0 +1,19 @@
+global gravity
+gravity=9.8 #gravity = 9.8 (m/s^2)
+
+# falling_distance takes t in seconds as input.
+def falling_distance(t):
+    d=.5*gravity*(t*t)
+    return(d)
+
+def main():
+    i=1;
+    while (i <= 10):
+        answer = falling_distance(i)
+        print("the distance the object was falling was", answer, "meters")
+        print(i)
+        i=i+1
+    return 0
+
+if __name__=="__main__":
+    main()
