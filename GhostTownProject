@@ -1,0 +1,65 @@
+# Final Project Logic and Pseudocode
+# Create a comment block with Program summary, student name, course name and section
+# Create line comments in the program to explain code
+# Create constant variables for the following files:
+# "GhostTownPop.txt"
+# "GhostTownArea.txt"
+# "GhostTownPopDensity.txt"
+# Prompt User to Input file Names (Population, Area and Density)
+print("Please enter the file names of population, area, and density in that order")
+POPULATION_FILE = input()
+AREA_FILE = input()
+REPORT_FILE = input()
+
+
+main() :
+  # Open the files using the input file names.
+  open(POPULATION_FILE, "r")
+  open(AREA_FILE, "r")
+  open(REPORT_FILE, "w")
+
+  # Read the first population data record.
+  popData = extractDataRecord(popFile)
+
+  while len(popData) == 2
+    # Read the next area data record.
+    areaData = extractDataRecord(areaFile)
+    # Extract the data components from the two lists.
+    Town = popData[0]
+    Population = popData[1]
+    Area = areaData[1]
+
+  # Compute and print the population density.
+  density = 0.0
+
+  if Area > 0 : # Check and Protect against division by zero.
+  Density = Population / Area 
+  reportFile.write("%-25s%10.2f\n" % (Town, Density))
+  # Read the next population data record.
+  popData = extractDataRecord(popFile)
+  # Close the files.
+  popFile.close()
+  areaFile.close()
+  reportFile.close()
+# End of Main Function
+# Start of extractDataRecord function
+# Extracts and returns a record from an input file in which the data is
+# organized by line. Each line contains the name of a country (possibly
+# containing multiple words) followed by an integer (either population
+# or area for the given country).
+# @param infile the input text file containing the line oriented data
+# @return a list containing the country (string) in the first element
+# and the population (int) or area (int) in the second element. If the end of
+# file was reached, an empty list is returned.
+
+
+def extractDataRecord(inFile) :
+  line = inFile.readline()
+  if line == "" :
+    return []
+  else :
+    parts = line.rsplit(" ", 1)
+    parts[1] = int(parts[1])
+    return parts
+# Start the test program by invoking main.
+main()
